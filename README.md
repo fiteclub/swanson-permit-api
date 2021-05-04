@@ -32,3 +32,18 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 * Image uploads
 * Deploy the application
 * Create a frontend
+
+# To Do
+- [x] Initial commit
+- [ ] Create new project
+- [ ] Generate scaffold
+  - [ ] User
+  - [ ] Medical Recommendation
+  - [ ] ID
+- [ ] API CRUD Actions
+- [ ] Validate ID Expiration
+- [ ] ...
+- [ ] Image uploads
+- [ ] Deploy to Heroku
+- [ ] Pull request to master
+- [ ] Profit???
