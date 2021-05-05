@@ -38,8 +38,8 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 - [x] Create new project
 - [x] Generate scaffold
   - [x] User
-  - [ ] Medical Recommendation
-  - [ ] ID
+  - [x] Medical Recommendation
+  - [x] ID
 - [ ] API CRUD Actions
 - [ ] Validate ID Expiration
 - [ ] ...
