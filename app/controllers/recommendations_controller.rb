@@ -1,5 +1,5 @@
 class RecommendationsController < ApplicationController
-  before_action :set_recommendation, only: [:show, :update, :destroy]
+  before_action :set_recommendation, only: %i[show update destroy]
 
   # GET /recommendations
   def index
@@ -39,13 +39,14 @@ class RecommendationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recommendation
-      @recommendation = Recommendation.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def recommendation_params
-      params.require(:recommendation).permit(:user_id, :rec_number, :issuer, :state, :expiration)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recommendation
+    @recommendation = Recommendation.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def recommendation_params
+    params.require(:recommendation).permit(:user_id, :rec_number, :issuer, :state, :expiration)
+  end
 end

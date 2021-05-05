@@ -1,5 +1,5 @@
 class IdsController < ApplicationController
-  before_action :set_id, only: [:show, :update, :destroy]
+  before_action :set_id, only: %i[show update destroy]
 
   # GET /ids
   def index
@@ -39,13 +39,14 @@ class IdsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_id
-      @id = Id.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def id_params
-      params.require(:id).permit(:user_id, :id_number, :state, :expiration)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_id
+    @id = Id.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def id_params
+    params.require(:id).permit(:user_id, :id_number, :state, :expiration)
+  end
 end

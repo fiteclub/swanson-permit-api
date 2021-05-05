@@ -11,6 +11,9 @@ AllCops:
 Rails:
   Enabled: true
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 130
 
