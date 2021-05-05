@@ -35,9 +35,9 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 
 # To Do
 - [x] Initial commit
-- [ ] Create new project
-- [ ] Generate scaffold
-  - [ ] User
+- [x] Create new project
+- [x] Generate scaffold
+  - [x] User
   - [ ] Medical Recommendation
   - [ ] ID
 - [ ] API CRUD Actions
