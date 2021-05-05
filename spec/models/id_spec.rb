@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Id, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to validate_presence_of(:user_id) }
+  it { is_expected.to validate_presence_of(:id_number) }
+  it { is_expected.to validate_presence_of(:state) }
+  it { is_expected.to validate_presence_of(:expiration) }
 end

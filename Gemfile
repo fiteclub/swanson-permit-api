@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'factory_bot_rails'
+gem 'faker', git: "https://github.com/stympy/faker.git", branch: 'master'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 gem 'rspec-rails'
@@ -30,8 +32,10 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_bot_rails'
-  gem 'faker', git: "https://github.com/stympy/faker.git", branch: 'master'
+  # faker and factory_bot moved to production, because in this case we need
+  # to generate data in production
+  # gem 'factory_bot_rails'
+  # gem 'faker', git: "https://github.com/stympy/faker.git", branch: 'master'
   gem 'rswag-specs'
 end
 
