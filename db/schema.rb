@@ -10,40 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_031743) do
+ActiveRecord::Schema.define(version: 2021_05_06_031316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "ids", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "id_number"
-    t.string "state"
-    t.datetime "expiration"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_ids_on_user_id"
-  end
-
-  create_table "recommendations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "rec_number"
-    t.string "issuer"
-    t.string "state"
-    t.datetime "expiration"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_recommendations_on_user_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "dob"
+    t.string "ident_num"
+    t.string "ident_state"
+    t.datetime "ident_expir"
+    t.string "ident_img"
+    t.string "recom_num"
+    t.string "recom_issuer"
+    t.datetime "recom_expir"
+    t.string "recom_img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "ids", "users"
-  add_foreign_key "recommendations", "users"
 end
