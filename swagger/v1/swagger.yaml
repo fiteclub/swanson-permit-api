@@ -1,0 +1,105 @@
+---
+swagger: '2.0'
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users":
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      consumes:
+      - application/json
+      - application/xml
+      parameters:
+      - name: user
+        in: body
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+            dob:
+              type: string
+            email:
+              type: string
+            ident_num:
+              type: string
+            ident_state:
+              type: string
+            ident_expir:
+              type: string
+            ident_img:
+              type: string
+            recom_num:
+              type: string
+            recom_issuer:
+              type: string
+            recom_expir:
+              type: string
+            recom_img:
+              type: string
+          required:
+          - name
+          - dob
+          - email
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+  "/users/{id}":
+    get:
+      summary: Retrieves a blog
+      tags:
+      - Users
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: id
+        in: path
+        type: string
+        required: true
+      responses:
+        '200':
+          description: user found
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              dob:
+                type: string
+              email:
+                type: string
+              ident_num:
+                type: string
+              ident_state:
+                type: string
+              ident_expir:
+                type: string
+              ident_img:
+                type: string
+              recom_num:
+                type: string
+              recom_issuer:
+                type: string
+              recom_expir:
+                type: string
+              recom_img:
+                type: string
+            required:
+            - name
+            - dob
+            - email
+        '404':
+          description: user not found
+        '406':
+          description: unsupported accept header
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

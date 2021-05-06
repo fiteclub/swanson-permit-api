@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :dob, presence: true
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
-  validates :ident_state, presence: true, length: { maximum: 2 },
+  validates :ident_state, length: { maximum: 2 },
                           format: { with: VALID_STATE_REGEX }
 
   def identification_expired?
