@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: JSON.pretty_generate(@users)
+    render json: @users
   end
 
   # GET /users/1
   def show
-    render json: JSON.pretty_generate(generate_user_hash(@user))
+    render json: {:status=>"#{show_status(@user)}", :user=>@user}
   end
 
   # POST /users
@@ -61,40 +61,11 @@ class UsersController < ApplicationController
     )
   end
 
-  def generate_user_hash(user)
-    {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      birthdate: user.dob,
-      identification: generate_identification_hash(user),
-      recommendation: generate_recommendation_hash(user)
-    }
-  end
-
-  def generate_identification_hash(user)
-    if user.identification_expired?
+  def show_status(user)
+    if user.expired?
       'EXPIRED'
     else
-      {
-        number: user.ident_num,
-        state: user.ident_state,
-        expiration: user.ident_expir,
-        image: user.ident_img
-      }
-    end
-  end
-
-  def generate_recommendation_hash(user)
-    if user.recommendation_expired?
-      'EXPIRED'
-    else
-      {
-        number: user.recom_num,
-        issuer: user.recom_issuer,
-        expiration: user.recom_expir,
-        image: user.recom_img
-      }
+      'OK'
     end
   end
 end

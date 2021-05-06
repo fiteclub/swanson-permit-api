@@ -7,6 +7,10 @@ class User < ApplicationRecord
   validates :ident_state, length: { maximum: 2 },
                           format: { with: VALID_STATE_REGEX }
 
+  def expired?
+    Date.current > ident_expir || Date.current > recom_expir
+  end
+  
   def identification_expired?
     check_expired(ident_expir)
   end
