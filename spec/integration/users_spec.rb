@@ -97,13 +97,17 @@ describe 'Medical Cannabis Users API' do
       produces 'application/json'
       parameter name: :id, in: :path, type: :string
 
-      response '200', 'User deleted' do
-        let(:id) { create(:user).id }
+      let(:user_1) do
+        create(:user)
+      end
+
+      response '204', 'User deleted' do
+        let(:user) { create(:user).id }
         run_test!
       end
 
       response '404', 'user not found' do
-        let(:id) { 'invalid' }
+        let(:user) { 'invalid' }
         run_test!
       end
     end

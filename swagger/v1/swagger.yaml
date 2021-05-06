@@ -136,7 +136,7 @@ paths:
         type: string
         required: true
       responses:
-        '200':
+        '204':
           description: User deleted
         '404':
           description: user not found
