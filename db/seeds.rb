@@ -5,10 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    dob: Faker::Date.birthday(min_age: 18, max_age: 65)
-  )
-end
+
+FactoryBot.create_list(:user, 10)
