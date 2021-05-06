@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users
+    render json: JSON.pretty_generate(@users)
   end
 
   # GET /users/1
   def show
-    render json: JSON.pretty_generate(show_user(@user))
+    render json: JSON.pretty_generate(generate_user_hash(@user))
   end
 
   # POST /users
@@ -61,41 +61,40 @@ class UsersController < ApplicationController
     )
   end
 
-  def show_user(user)
+  def generate_user_hash(user)
     {
       id: user.id,
       name: user.name,
       email: user.email,
       birthdate: user.dob,
-      identification: show_ident(user),
-      recommendation: show_recom(user)
+      identification: generate_identification_hash(user),
+      recommendation: generate_recommendation_hash(user)
     }
   end
 
-  def show_ident(user)
-    if user.ident_expired?
-      "EXPIRED"
+  def generate_identification_hash(user)
+    if user.identification_expired?
+      'EXPIRED'
     else
-        {
-          number: user.ident_num,
-          state: user.ident_state,
-          expiration: user.ident_expir,
-          image: user.ident_img
-        }
+      {
+        number: user.ident_num,
+        state: user.ident_state,
+        expiration: user.ident_expir,
+        image: user.ident_img
+      }
     end
   end
 
-  def show_recom(user)
-    if user.recom_expired?
-      "EXPIRED"
+  def generate_recommendation_hash(user)
+    if user.recommendation_expired?
+      'EXPIRED'
     else
-        {
-          number: user.recom_num,
-          issuer: user.recom_issuer,
-          expiration: user.recom_expir,
-          image: user.recom_img
-        }
+      {
+        number: user.recom_num,
+        issuer: user.recom_issuer,
+        expiration: user.recom_expir,
+        image: user.recom_img
+      }
     end
   end
-
 end
