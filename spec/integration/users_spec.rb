@@ -4,63 +4,55 @@ describe 'Medical Cannabis Users API' do
 
   path '/users' do
 
-    post 'Creates a user' do
-      tags 'Users'
-      consumes 'application/json', 'application/xml'
-      parameter name: :user, in: :body, schema: {
-        type: :object,
-        properties: {
-          name: { type: :string },
-          dob: { type: :string },
-          email: { type: :string },
-          ident_num: { type: :string },
-          ident_state: { type: :string },
-          ident_expir: { type: :string },
-          ident_img: { type: :string },
-          recom_num: { type: :string },
-          recom_issuer: { type: :string },
-          recom_expir: { type: :string },
-          recom_img: { type: :string },
-        },
-        required: [ 'name', 'dob', 'email']
+    post 'Creates a new user' do
+      tags 'users'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :data, in: :body, schema: {
+        '$ref' => '#/definitions/createUser'
       }
 
       response '201', 'user created' do
-        let(:user) { { name: 'foo', dob: 'bar', email: 'barbie' } }
+        let(:data) { { name: 'foo', dob: 'bar', email: 'barbie' } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:blog) { { title: 'foo' } }
+        let(:data) { { name: 'foo' } }
         run_test! 
       end
     end
   end
 
+  path '/users' do
+
+    get 'Retrieves all users' do
+      tags 'users'
+      produces 'application/json'
+
+      response '200', 'user found' do
+        schema type: :object,
+          properties: {
+            '$ref' => '#/definitions/createUser'
+          }
+        let(:user) { User.create(name: 'foo', dob: 'bar', email: 'barbie').id }
+        run_test!
+      end
+    end
+  end
+
   path '/users/{id}' do
-    get 'Retrieves a blog' do
-      tags 'Users'
-      produces 'application/json', 'application/xml'
+    get 'Retrieves a user' do
+      tags 'users'
+      produces 'application/json'
       parameter name: :id, in: :path, type: :string
 
       response '200', 'user found' do
         schema type: :object,
         properties: {
-          name: { type: :string },
-          dob: { type: :string },
-          email: { type: :string },
-          ident_num: { type: :string },
-          ident_state: { type: :string },
-          ident_expir: { type: :string },
-          ident_img: { type: :string },
-          recom_num: { type: :string },
-          recom_issuer: { type: :string },
-          recom_expir: { type: :string },
-          recom_img: { type: :string },
-        },
-        required: [ 'name', 'dob', 'email']
-
-        let(:id) { User.create(name: 'foo', dob: 'bar', email: 'barbie').id }
+          '$ref' => '#/definitions/createUser'
+        }
+        let(:user) { { name: 'foo', dob: 'bar', email: 'barbie' } }
         run_test!
       end
 
@@ -75,5 +67,52 @@ describe 'Medical Cannabis Users API' do
       end 
     end
   end
+
+  path '/users/{id}' do
+
+    put 'Update a user' do
+      tags 'users'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :id, in: :path, type: :integer, required: true
+      parameter name: :data, in: :body, schema: {
+        '$ref' => '#/definitions/createUser'
+      }
+      let(:user_1) do
+        create(:user)
+      end
+
+      response '200', 'user updated' do
+        let(:user) { { name: 'foo', dob: 'bar', email: 'barbie' } }
+        run_test!
+      end
+
+      response '404', 'user not found' do
+        let(:user) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
+
+  path '/users/{id}' do
+
+    delete 'Delete a user' do
+      tags 'users'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :id, in: :path, type: :string
+      
+      response '200', 'User deleted' do
+        let(:id) {create(:user).id}
+        run_test!
+      end
+
+      response '404', 'user not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end 
 
 end

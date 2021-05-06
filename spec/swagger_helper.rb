@@ -21,19 +21,77 @@ RSpec.configure do |config|
         title: 'API V1',
         version: 'v1'
       },
-      paths: {},
-      servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
+      definitions: {
+        createUser: {
+          type: :object,
+          properties: {
+            name: { type: :string, example: 'Leslie Knope' },
+            dob: { type: :string, example: '1975-1-1' },
+            email: { type: :string, example: 'lilsebastian1975@lycos.com' },
+            ident_num: { type: :string, example: 'S1128628' },
+            ident_state: { type: :string, example: 'IN' },
+            ident_expir: { type: :string, example: '2025-1-1' },
+            ident_img: { type: :string, example: 'image.jpg' },
+            recom_num: { type: :string, example: '32823493' },
+            recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+            recom_expir: { type: :string, example: '2023-1-1' },
+            recom_img: { type: :string, example: 'image.jpg' }
+              },
+            required: %i[name email dob]
             }
           }
         }
-      ]
-    }
-  }
+      }
+        # user: {
+        #   type: :object,
+        #   properties: {
+        #     data: {
+        #       type: :object,
+        #       required: %i[name email dob],
+        #       properties: {
+        #         name: { type: :string, example: 'Leslie Knope' },
+        #         dob: { type: :string, example: '1/18/1975' },
+        #         email: { type: :string, example: 'lilsebastian1975@lycos.com' },
+        #         ident_num: { type: :string, example: 'S1128628' },
+        #         ident_state: { type: :string, example: 'IN' },
+        #         ident_expir: { type: :string, example: '1/1/2023' },
+        #         ident_img: { type: :string, example: 'image.jpg' },
+        #         recom_num: { type: :string, example: '32823493' },
+        #         recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+        #         recom_expir: { type: :string, example: '1/1/2023' },
+        #         recom_img: { type: :string, example: 'image.jpg' }
+        #       }
+        #     }
+        #   }
+        # },
+        # showUser: {
+        #   type: :object,
+        #   properties: {
+        #     data: {
+        #       type: :object,
+        #       required: %i[name email dob],
+        #       properties: {
+        #         id: { type: :integer, example: '1'},
+        #         name: { type: :string, example: 'Leslie Knope' },
+        #         dob: { type: :string, example: '1/18/1975' },
+        #         email: { type: :string, example: 'lilsebastian1975@lycos.com' },
+        #         birthdate: { type: :string },
+        #         ident: {
+        #           ident_num: { type: :string, example: 'S1128628' },
+        #           ident_state: { type: :string, example: 'IN' },
+        #           ident_expir: { type: :string, example: '1/1/2023' },
+        #           ident_img: { type: :string, example: 'image.jpg' }
+        #         },
+        #         recom: {
+        #           recom_num: { type: :string, example: '32823493' },
+        #           recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+        #           recom_expir: { type: :string, example: '1/1/2023' },
+        #           recom_img: { type: :string, example: 'image.jpg' }
+        #         }
+        #       }
+        #     }
+        #   }
+        # }
 
   # Specify the format of the output Swagger file when running 'rswag:specs:swaggerize'.
   # The swagger_docs configuration option has the filename including format in

@@ -38,12 +38,13 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 - [x] Create new project
 - [x] Generate scaffold
   - [x] User
-  - [x] Medical Recommendation
-  - [x] ID
-- [ ] API CRUD Actions
-- [ ] Validate ID Expiration
+- [x] API CRUD Actions
+- [x] Validate ID Expiration
 - [ ] ...
 - [ ] Image uploads
-- [ ] Deploy to Heroku
+- [x] Deploy to Heroku
 - [ ] Pull request to master
 - [ ] Profit???
+
+# Deployed
+[Deployed to heroku](https://shrouded-citadel-46945.herokuapp.com/api-docs/)

@@ -10,16 +10,4 @@ class User < ApplicationRecord
   def expired?
     Date.current > ident_expir || Date.current > recom_expir
   end
-  
-  def identification_expired?
-    check_expired(ident_expir)
-  end
-
-  def recommendation_expired?
-    check_expired(recom_expir)
-  end
-
-  def check_expired(date)
-    Date.current > date
-  end
 end
