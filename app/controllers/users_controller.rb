@@ -4,13 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
     render json: @users
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: JSON.pretty_generate(show_user(@user))
   end
 
   # POST /users
@@ -61,4 +60,42 @@ class UsersController < ApplicationController
       :recom_img
     )
   end
+
+  def show_user(user)
+    {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      birthdate: user.dob,
+      identification: show_ident(user),
+      recommendation: show_recom(user)
+    }
+  end
+
+  def show_ident(user)
+    if user.ident_expired?
+      "EXPIRED"
+    else
+        {
+          number: user.ident_num,
+          state: user.ident_state,
+          expiration: user.ident_expir,
+          image: user.ident_img
+        }
+    end
+  end
+
+  def show_recom(user)
+    if user.recom_expired?
+      "EXPIRED"
+    else
+        {
+          number: user.recom_num,
+          issuer: user.recom_issuer,
+          expiration: user.recom_expir,
+          image: user.recom_img
+        }
+    end
+  end
+
 end
