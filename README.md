@@ -43,7 +43,7 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 - [ ] ...
 - [ ] Image uploads
 - [x] Deploy to Heroku
-- [ ] Pull request to master
+- [x] Pull request to master
 - [ ] Profit???
 
 # Deployed

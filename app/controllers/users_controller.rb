@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: {:status=>"#{show_status(@user)}", :user=>@user}
+    render json: { status: show_status(@user).to_s, user: @user }
   end
 
   # POST /users
@@ -68,5 +68,4 @@ class UsersController < ApplicationController
       'OK'
     end
   end
-
 end

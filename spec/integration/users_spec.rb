@@ -1,9 +1,7 @@
 require 'swagger_helper'
 
 describe 'Medical Cannabis Users API' do
-
   path '/users' do
-
     post 'Creates a new user' do
       tags 'users'
       consumes 'application/json'
@@ -19,22 +17,21 @@ describe 'Medical Cannabis Users API' do
 
       response '422', 'invalid request' do
         let(:data) { { name: 'foo' } }
-        run_test! 
+        run_test!
       end
     end
   end
 
   path '/users' do
-
     get 'Retrieves all users' do
       tags 'users'
       produces 'application/json'
 
       response '200', 'user found' do
         schema type: :object,
-          properties: {
-            '$ref' => '#/definitions/createUser'
-          }
+               properties: {
+                 '$ref' => '#/definitions/createUser'
+               }
         let(:user) { User.create(name: 'foo', dob: 'bar', email: 'barbie').id }
         run_test!
       end
@@ -49,9 +46,9 @@ describe 'Medical Cannabis Users API' do
 
       response '200', 'user found' do
         schema type: :object,
-        properties: {
-          '$ref' => '#/definitions/createUser'
-        }
+               properties: {
+                 '$ref' => '#/definitions/createUser'
+               }
         let(:user) { { name: 'foo', dob: 'bar', email: 'barbie' } }
         run_test!
       end
@@ -62,14 +59,13 @@ describe 'Medical Cannabis Users API' do
       end
 
       response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
+        let(:Accept) { 'application/foo' }
         run_test!
-      end 
+      end
     end
   end
 
   path '/users/{id}' do
-
     put 'Update a user' do
       tags 'users'
       consumes 'application/json'
@@ -94,17 +90,15 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-
   path '/users/{id}' do
-
     delete 'Delete a user' do
       tags 'users'
       consumes 'application/json'
       produces 'application/json'
       parameter name: :id, in: :path, type: :string
-      
+
       response '200', 'User deleted' do
-        let(:id) {create(:user).id}
+        let(:id) { create(:user).id }
         run_test!
       end
 
@@ -113,6 +107,5 @@ describe 'Medical Cannabis Users API' do
         run_test!
       end
     end
-  end 
-
+  end
 end
