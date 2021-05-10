@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 describe 'Medical Cannabis Users API' do
-  path '/users' do
+  path '/api/v1/users' do
     post 'Creates a new user' do
       tags 'users'
       consumes 'application/json'
@@ -22,7 +22,7 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-  path '/users' do
+  path '/api/v1/users' do
     get 'Retrieves all users' do
       tags 'users'
       produces 'application/json'
@@ -38,7 +38,7 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-  path '/users/{id}' do
+  path '/api/v1/users/{id}' do
     get 'Retrieves a user' do
       tags 'users'
       produces 'application/json'
@@ -65,7 +65,7 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-  path '/users/{id}' do
+  path '/api/v1/users/{id}' do
     put 'Update a user' do
       tags 'users'
       consumes 'application/json'
@@ -90,7 +90,7 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-  path '/users/{id}' do
+  path '/api/v1/users/{id}' do
     delete 'Delete a user' do
       tags 'users'
       consumes 'application/json'
@@ -101,7 +101,7 @@ describe 'Medical Cannabis Users API' do
         create(:user)
       end
 
-      response '204', 'User deleted' do
+      response '204', 'user deleted' do
         let(:user) { create(:user).id }
         run_test!
       end
