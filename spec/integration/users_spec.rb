@@ -6,17 +6,17 @@ describe 'Medical Cannabis Users API' do
       tags 'users'
       consumes 'application/json'
       produces 'application/json'
-      parameter name: :data, in: :body, schema: {
+      parameter name: :user, in: :body, schema: {
         '$ref' => '#/definitions/createUser'
       }
 
       response '201', 'user created' do
-        let(:data) { { name: 'foo', dob: 'bar', email: 'barbie' } }
+        let(:user) { create(:user) }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:data) { { name: 'foo' } }
+        let(:user) { { name: 'foo' } }
         run_test!
       end
     end
@@ -25,36 +25,32 @@ describe 'Medical Cannabis Users API' do
   path '/api/v1/users' do
     get 'Retrieves all users' do
       tags 'users'
-      produces 'application/json'
-
-      response '200', 'user found' do
-        schema type: :object,
-               properties: {
-                 '$ref' => '#/definitions/createUser'
-               }
-        let(:user) { User.create(name: 'foo', dob: 'bar', email: 'barbie').id }
+      response '200', 'list users' do
+        consumes 'application/json'
+        produces 'application/json'
+        schema type: :array, items: { '$ref' => '#/definitions/showUser' }
+        let(:user) { create(:user) }
         run_test!
       end
     end
   end
 
-  path '/api/v1/users/{id}' do
+  path '/api/v1/users/{user_id}' do
     get 'Retrieves a user' do
       tags 'users'
-      produces 'application/json'
-      parameter name: :id, in: :path, type: :string
-
       response '200', 'user found' do
-        schema type: :object,
-               properties: {
-                 '$ref' => '#/definitions/createUser'
-               }
-        let(:user) { { name: 'foo', dob: 'bar', email: 'barbie' } }
+        consumes 'application/json'
+        parameter name: :user_id, in: :path, type: :string
+        produces 'application/json'
+        schema type: :object, properties: {
+          '$ref' => '#/definitions/statusUser'
+        }
+        let(:user) { create(:user) }
         run_test!
       end
 
       response '404', 'user not found' do
-        let(:id) { 'invalid' }
+        let(:Response) { 'invalid' }
         run_test!
       end
 
@@ -65,21 +61,18 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-  path '/api/v1/users/{id}' do
+  path '/api/v1/users/{user_id}' do
     put 'Update a user' do
       tags 'users'
       consumes 'application/json'
+      parameter name: :user_id, in: :path, type: :string, required: true
       produces 'application/json'
-      parameter name: :id, in: :path, type: :integer, required: true
-      parameter name: :data, in: :body, schema: {
+      parameter name: :user, in: :body, schema: {
         '$ref' => '#/definitions/createUser'
       }
-      let(:user_1) do
-        create(:user)
-      end
 
       response '200', 'user updated' do
-        let(:user) { { name: 'foo', dob: 'bar', email: 'barbie' } }
+        let(:user) { create(:user) }
         run_test!
       end
 
@@ -90,14 +83,14 @@ describe 'Medical Cannabis Users API' do
     end
   end
 
-  path '/api/v1/users/{id}' do
+  path '/api/v1/users/{user_id}' do
     delete 'Delete a user' do
       tags 'users'
       consumes 'application/json'
+      parameter name: :user_id, in: :path, type: :string
       produces 'application/json'
-      parameter name: :id, in: :path, type: :string
 
-      let(:user_1) do
+      let(:user) do
         create(:user)
       end
 

@@ -38,6 +38,48 @@ RSpec.configure do |config|
             recom_img: { type: :string, example: 'image.jpg' }
           },
           required: %i[name email dob]
+        },
+        showUser: {
+          type: :object,
+          properties: {
+            id: { type: :number, example: 1 },
+            name: { type: :string, example: 'Leslie Knope' },
+            dob: { type: :string, example: '1975-1-1' },
+            email: { type: :string, example: 'lilsebastian1975@lycos.com' },
+            ident_num: { type: :string, example: 'S1128628' },
+            ident_state: { type: :string, example: 'IN' },
+            ident_expir: { type: :string, example: '2025-1-1' },
+            ident_img: { type: :string, example: 'image.jpg' },
+            recom_num: { type: :string, example: '32823493' },
+            recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+            recom_expir: { type: :string, example: '2023-1-1' },
+            recom_img: { type: :string, example: 'image.jpg' },
+            created_at: { type: :string, example: '2021-05-10T20:06:28.558Z' },
+            updated_at: { type: :string, example: '2021-05-10T20:06:28.558Z' }
+          },
+          required: %i[name email dob]
+        },
+        statusUser: {
+          type: :object,
+          properties: {
+            status: { type: :string, example: 'OK' },
+            user: {
+              id: { type: :number, example: 1 },
+              name: { type: :string, example: 'Leslie Knope' },
+              dob: { type: :string, example: '1975-1-1' },
+              email: { type: :string, example: 'lilsebastian1975@lycos.com' },
+              ident_num: { type: :string, example: 'S1128628' },
+              ident_state: { type: :string, example: 'IN' },
+              ident_expir: { type: :string, example: '2025-1-1' },
+              ident_img: { type: :string, example: 'image.jpg' },
+              recom_num: { type: :string, example: '32823493' },
+              recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+              recom_expir: { type: :string, example: '2023-1-1' },
+              recom_img: { type: :string, example: 'image.jpg' },
+              created_at: { type: :string, example: '2021-05-10T20:06:28.558Z' },
+              updated_at: { type: :string, example: '2021-05-10T20:06:28.558Z' }
+            }
+          }
         }
       }
     }
