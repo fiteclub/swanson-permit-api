@@ -40,16 +40,8 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
   - [x] User
 - [x] API CRUD Actions
 - [x] Validate ID Expiration
-- [ ] ...
-- [ ] Implement jbuilder gem
-- [ ] Create new models
-  - [ ] recommendation
-  - [ ] identification
-- [ ] Implement friendly_id gem
-- [ ] Image uploads
-  - [ ] cloudinary gem
 - [x] Deploy to Heroku
-- [ ] Pull request to master
+- [x] Pull request to master
 - [ ] Profit???
 
 # Deployed

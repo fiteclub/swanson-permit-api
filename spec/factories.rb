@@ -6,10 +6,10 @@ FactoryBot.define do
     ident_num { Faker::DrivingLicence.usa_driving_licence }
     ident_state { Faker::Address.state_abbr }
     ident_expir { Faker::Date.between(from: 1.month.ago, to: 4.years.from_now) }
-    ident_img { 'identification.jpg' }
+    ident_img { 'https://shrouded-citadel-46945.herokuapp.com/ident001.jpg' }
     recom_num { Faker::Color.hex_color }
     recom_issuer { Faker::TvShows::StarTrek.villain }
     recom_expir { Faker::Date.between(from: 1.month.ago, to: 4.years.from_now) }
-    recom_img { 'recommendation.png' }
+    recom_img { 'https://shrouded-citadel-46945.herokuapp.com/recom001.jpg' }
   end
 end
