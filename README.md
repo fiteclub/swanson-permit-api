@@ -40,6 +40,7 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
   - [x] User
 - [x] API CRUD Actions
 - [x] Validate ID Expiration
+- [x] Image uploads
 - [x] Deploy to Heroku
 - [x] Pull request to master
 - [ ] Profit???
