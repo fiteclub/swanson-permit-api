@@ -5,7 +5,7 @@ module Api
 
       # GET /users
       def index
-        @users = User.all
+        @users = User.order('id ASC')
         render json: @users
       end
 
@@ -19,6 +19,8 @@ module Api
         @user = User.new(user_params)
 
         if @user.save
+          @user.reload
+          # Reload for carrierwave, otherwise it returns null
           render json: @user, status: :created, location: api_v1_user_url(@user)
         else
           render json: @user.errors, status: :unprocessable_entity
@@ -28,6 +30,8 @@ module Api
       # PATCH/PUT /users/1
       def update
         if @user.update(user_params)
+          @user.reload
+          # Reload for carrierwave, otherwise it returns null
           render json: @user
         else
           render json: @user.errors, status: :unprocessable_entity
@@ -48,7 +52,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def user_params
-        params.require(:user).permit(
+        params.permit(
           :name,
           :email,
           :dob,
