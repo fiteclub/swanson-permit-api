@@ -15,7 +15,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # end
 
   def public_id
-    return "ccd_image/" + Cloudinary::Utils.random_public_id
+    "ccd_image/#{Cloudinary::Utils.random_public_id}"
   end
 
   # version :standard do
@@ -49,7 +49,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

@@ -6,10 +6,8 @@ AllCops:
     - "bin/**/*"
     - "vendor/**/*"
     - "**/config/**/*"
-  TargetRubyVersion: 2.6
-
-Rails:
-  Enabled: true
+  NewCops: enable
+  TargetRubyVersion: 2.7
 
 Style/Documentation:
   Enabled: false
@@ -17,7 +15,7 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Metrics/LineLength:
+Layout:
   Max: 130
 
 Metrics/MethodLength:
