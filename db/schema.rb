@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_031316) do
+ActiveRecord::Schema.define(version: 2021_05_16_040233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 2021_05_06_031316) do
     t.datetime "dob"
     t.string "ident_num"
     t.string "ident_state"
-    t.datetime "ident_expir"
+    t.date "ident_expir"
     t.string "ident_img"
     t.string "recom_num"
     t.string "recom_issuer"
-    t.datetime "recom_expir"
+    t.date "recom_expir"
     t.string "recom_img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
