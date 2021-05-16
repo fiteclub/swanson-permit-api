@@ -41,9 +41,15 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 - [x] API CRUD Actions
 - [x] Validate ID Expiration
 - [x] Image uploads
+- [ ] Front end
 - [x] Deploy to Heroku
 - [x] Pull request to master
 - [ ] Profit???
 
 # Deployed
-[Deployed to heroku](https://shrouded-citadel-46945.herokuapp.com/api-docs/)
+* [API deployed to heroku](https://shrouded-citadel-46945.herokuapp.com/api-docs/)
+* [Frontend deployed to heroku](https://gonzocare-by-dr-gonzo.herokuapp.com/)
+
+# About
+* API (this repo) is a rails api
+* Frontend is a separate rails app using [ActiveResource](https://github.com/rails/activeresource) to interface with the api
