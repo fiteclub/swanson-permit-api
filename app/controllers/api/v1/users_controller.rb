@@ -6,12 +6,12 @@ module Api
       # GET /users
       def index
         @users = User.order('id ASC')
-        render json: @users
+        render 'users/index.json.jbuilder'
       end
 
       # GET /users/1
       def show
-        render json: { status: show_status(@user).to_s, user: @user }
+        render 'users/show.json.jbuilder'
       end
 
       # POST /users
@@ -65,14 +65,6 @@ module Api
           :recom_expir,
           :recom_img
         )
-      end
-
-      def show_status(user)
-        if user.expired?
-          'EXPIRED'
-        else
-          'OK'
-        end
       end
     end
   end
