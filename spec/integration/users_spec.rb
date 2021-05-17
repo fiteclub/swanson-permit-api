@@ -43,7 +43,7 @@ describe 'Medical Cannabis Users API' do
         parameter name: :user_id, in: :path, type: :string
         produces 'application/json'
         schema type: :object, properties: {
-          '$ref' => '#/definitions/statusUser'
+          '$ref' => '#/definitions/showUser'
         }
         let(:user) { create(:user) }
         run_test!

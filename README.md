@@ -37,11 +37,10 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 - [x] Initial commit
 - [x] Create new project
 - [x] Generate scaffold
-  - [x] User
 - [x] API CRUD Actions
 - [x] Validate ID Expiration
 - [x] Image uploads
-- [ ] Front end
+- [x] Front end
 - [x] Deploy to Heroku
 - [x] Pull request to master
 - [ ] Profit???
@@ -53,3 +52,8 @@ As a user, I would like to use my Medical Recommendation and Government Issued I
 # About
 * API (this repo) is a rails api
 * Frontend is a separate rails app using [ActiveResource](https://github.com/rails/activeresource) to interface with the api
+* the json output for user has a 'status' field:
+  * 'EXPIRED' if either identification or recommendation have expired
+  * 'INVALID' if either identification or recommendation expiration dates are blank, etc
+  * 'OK' if not expired
+* Image handling by the api uses CarrierWave with Cloudinary endpoint
