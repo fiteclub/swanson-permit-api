@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-describe 'Medical Cannabis Users API' do
+describe 'Swanson Permit API' do
   path '/api/v1/users' do
     post 'Creates a new user' do
       tags 'users'

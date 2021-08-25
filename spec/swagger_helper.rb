@@ -32,10 +32,10 @@ RSpec.configure do |config|
             ident_state: { type: :string, example: 'IN' },
             ident_expir: { type: :string, example: '2025-1-1' },
             ident_img: { type: :string, example: 'image.jpg' },
-            recom_num: { type: :string, example: '32823493' },
-            recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
-            recom_expir: { type: :string, example: '2023-1-1' },
-            recom_img: { type: :string, example: 'image.jpg' }
+            permit_num: { type: :string, example: '32823493' },
+            permit_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+            permit_expir: { type: :string, example: '2023-1-1' },
+            permit_img: { type: :string, example: 'image.jpg' }
           },
           required: %i[name email dob]
         },
@@ -50,10 +50,10 @@ RSpec.configure do |config|
             ident_state: { type: :string, example: 'IN' },
             ident_expir: { type: :string, example: '2025-1-1' },
             ident_img: { type: :string, example: 'image.jpg' },
-            recom_num: { type: :string, example: '32823493' },
-            recom_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
-            recom_expir: { type: :string, example: '2020-1-1' },
-            recom_img: { type: :string, example: 'image.jpg' },
+            permit_num: { type: :string, example: '32823493' },
+            permit_issuer: { type: :string, example: 'Dr. Ron Burgundy' },
+            permit_expir: { type: :string, example: '2020-1-1' },
+            permit_img: { type: :string, example: 'image.jpg' },
             status: { type: :string, example: 'EXPIRED'}
           },
           required: %i[name email dob]

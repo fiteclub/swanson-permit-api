@@ -28,16 +28,16 @@ definitions:
       ident_img:
         type: string
         example: image.jpg
-      recom_num:
+      permit_num:
         type: string
         example: '32823493'
-      recom_issuer:
+      permit_issuer:
         type: string
         example: Dr. Ron Burgundy
-      recom_expir:
+      permit_expir:
         type: string
         example: '2023-1-1'
-      recom_img:
+      permit_img:
         type: string
         example: image.jpg
     required:
@@ -71,16 +71,16 @@ definitions:
       ident_img:
         type: string
         example: image.jpg
-      recom_num:
+      permit_num:
         type: string
         example: '32823493'
-      recom_issuer:
+      permit_issuer:
         type: string
         example: Dr. Ron Burgundy
-      recom_expir:
+      permit_expir:
         type: string
         example: '2020-1-1'
-      recom_img:
+      permit_img:
         type: string
         example: image.jpg
       status:

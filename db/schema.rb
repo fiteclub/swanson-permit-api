@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2021_05_16_174239) do
     t.string "ident_state"
     t.date "ident_expir"
     t.string "ident_img"
-    t.string "recom_num"
-    t.string "recom_issuer"
-    t.date "recom_expir"
-    t.string "recom_img"
+    t.string "permit_num"
+    t.string "permit_issuer"
+    t.date "permit_expir"
+    t.string "permit_img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

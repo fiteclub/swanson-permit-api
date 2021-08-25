@@ -7,9 +7,9 @@ FactoryBot.define do
     ident_state { Faker::Address.state_abbr }
     ident_expir { Faker::Date.between(from: 1.month.ago, to: 4.years.from_now) }
     ident_img { 'https://shrouded-citadel-46945.herokuapp.com/ident001.jpg' }
-    recom_num { Faker::Color.hex_color }
-    recom_issuer { Faker::TvShows::StarTrek.villain }
-    recom_expir { Faker::Date.between(from: 1.month.ago, to: 4.years.from_now) }
-    recom_img { 'https://shrouded-citadel-46945.herokuapp.com/recom001.jpg' }
+    permit_num { Faker::Color.hex_color }
+    permit_issuer { Faker::TvShows::StarTrek.villain }
+    permit_expir { Faker::Date.between(from: 1.month.ago, to: 4.years.from_now) }
+    permit_img { 'https://shrouded-citadel-46945.herokuapp.com/recom001.jpg' }
   end
 end

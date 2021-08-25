@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :ident_img, UserImageUploader
-  mount_uploader :recom_img, UserImageUploader
+  mount_uploader :permit_img, UserImageUploader
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 42 }
   # validates :dob, presence: true
@@ -10,11 +10,11 @@ class User < ApplicationRecord
   #                         format: { with: VALID_STATE_REGEX }
 
   def expired?
-    Date.current > ident_expir || Date.current > recom_expir
+    Date.current > ident_expir || Date.current > permit_expir
   end
 
   def status
-    if ident_expir.nil? || recom_expir.nil?
+    if ident_expir.nil? || permit_expir.nil?
       'INVALID'
     elsif expired?
       'EXPIRED'

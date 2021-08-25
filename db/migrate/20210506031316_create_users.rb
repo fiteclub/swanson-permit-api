@@ -8,10 +8,10 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :ident_state
       t.datetime :ident_expir
       t.string :ident_img
-      t.string :recom_num
-      t.string :recom_issuer
-      t.datetime :recom_expir
-      t.string :recom_img
+      t.string :permit_num
+      t.string :permit_issuer
+      t.datetime :permit_expir
+      t.string :permit_img
 
       t.timestamps
     end

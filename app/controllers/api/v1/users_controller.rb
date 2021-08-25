@@ -60,10 +60,10 @@ module Api
           :ident_state,
           :ident_expir,
           :ident_img,
-          :recom_num,
-          :recom_issuer,
-          :recom_expir,
-          :recom_img
+          :permit_num,
+          :permit_issuer,
+          :permit_expir,
+          :permit_img
         )
       end
     end
