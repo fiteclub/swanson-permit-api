@@ -10,6 +10,6 @@ FactoryBot.define do
     permit_num { Faker::Color.hex_color }
     permit_issuer { Faker::TvShows::StarTrek.villain }
     permit_expir { Faker::Date.between(from: 1.month.ago, to: 4.years.from_now) }
-    permit_img { 'https://shrouded-citadel-46945.herokuapp.com/recom001.jpg' }
+    permit_img { 'https://shrouded-citadel-46945.herokuapp.com/permit001.jpg' }
   end
 end
