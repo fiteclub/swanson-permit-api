@@ -1,10 +1,11 @@
 # Swanson Permit API
 
-[See it Live!](https://swanson-permit-api.herokuapp.com)
+See it Live! -- [https://swanson-permit-api.herokuapp.com](https://swanson-permit-api.herokuapp.com)
+
 The Swanson Permit API is an api for tracking Swanson Permits for the 
 town of Pawnee Indiana.
 
-![i_can_do_what_i_want.rb](https://i.pinimg.com/originals/09/a2/44/09a244e034a375051b8293e89f9cefe3.jpg)
+![i_can_do_what_i_want.rb](https://github.com/fiteclub/swanson-permit-api/blob/master/swanson_permit.jpg)
 ```
 I can do what I want 
 
