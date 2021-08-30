@@ -13,6 +13,13 @@ I can do what I want
 Ron
 ```
 
+
+## Installation
+* ``` bundle install```
+ 
+* Requires a Cloudinary account. Set environmental variable CLOUDINARY_URL to your cloudinary bucket url.
+ 
+
 ---
 ## ***This is a toy app to demonstrate a Ruby on Rails API.***
 [Parks and Recreation is a TV Series 2009–2015](https://www.imdb.com/title/tt1266020/).
